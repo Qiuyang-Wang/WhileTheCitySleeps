@@ -1,0 +1,198 @@
+/* Four thoughts, each drawn outward from Mr O by scrolling. */
+#workload {
+  --workload-height:520vh;
+  --thought-width:min(30vw,44vh,470px)
+}
+
+#workload .section-heading {
+  top:12%;
+  left:auto;
+  right:var(--rail-space);
+  text-align:right
+}
+
+#workload .workload-person {
+  left:calc(50% - 7.5vh)
+}
+
+#workload .task {
+  inset:0;
+  width:auto;
+  max-width:none;
+  transform:none;
+  pointer-events:none
+}
+
+#workload .thought-content {
+  position:absolute;
+  left:var(--card-left);
+  top:var(--card-top);
+  width:var(--thought-width);
+  opacity:var(--thought-image,0);
+  transform:scale(calc(.97 + .03 * var(--thought-image,0)));
+  transform-origin:center
+}
+
+#workload .thought-content>img {
+  width:100%;
+  height:auto;
+  object-fit:contain
+}
+
+#workload .thought-caption {
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  column-gap:9px;
+  margin:0 7% 10px
+}
+
+#workload .thought-caption>span {
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--muted)
+}
+
+#workload .thought-caption h3 {
+  font-size:clamp(13px,1.2vw,19px);
+  margin:0;
+  line-height:1.3;
+  letter-spacing:0
+}
+
+#workload .thought-caption i {
+  flex-basis:45%;
+  height:1px;
+  margin:5px 55% 0 0
+}
+
+#workload .thought-dot {
+  position:absolute;
+  border-radius:50%;
+  border:1.5px solid #bfc3c7;
+  background:var(--theme-panel);
+  transform:translate(-50%,-50%) scale(calc(.7 + .3 * var(--dot-opacity)));
+  opacity:var(--dot-opacity)
+}
+
+#workload .thought-dot-small {
+  --dot-opacity:var(--thought-small,0);
+  left:var(--dot1-x);
+  top:var(--dot1-y);
+  width:clamp(12px,1.6vw,24px);
+  height:clamp(12px,1.6vw,24px)
+}
+
+#workload .thought-dot-large {
+  --dot-opacity:var(--thought-large,0);
+  left:var(--dot2-x);
+  top:var(--dot2-y);
+  width:clamp(20px,2.6vw,38px);
+  height:clamp(20px,2.6vw,38px)
+}
+
+#workload .task-1 {
+  --card-left:12%; --card-top:18%;
+  --dot1-x:45%; --dot1-y:40%;
+  --dot2-x:41%; --dot2-y:38%
+}
+
+#workload .task-2 {
+  --card-left:63%; --card-top:31%;
+  --dot1-x:55%; --dot1-y:40%;
+  --dot2-x:59%; --dot2-y:42%
+}
+
+#workload .task-3 {
+  --thought-width:min(33vw,48vh,510px);
+  --card-left:58%; --card-top:59%;
+  --dot1-x:55%; --dot1-y:61%;
+  --dot2-x:59%; --dot2-y:65%
+}
+
+#workload .task-4 {
+  --thought-width:min(33vw,48vh,510px);
+  --card-left:14%; --card-top:59%;
+  --dot1-x:45%; --dot1-y:61%;
+  --dot2-x:41%; --dot2-y:65%
+}
+
+@media(max-width:800px) {
+  #workload {
+    --thought-width:min(30vw,44vh,340px)
+  }
+  #workload .section-heading {
+    top:11%
+  }
+  #workload-title {
+    font-size:clamp(24px,5.5vw,40px)
+  }
+  #workload .workload-person {
+    height:34vh;
+    width:11.3vh;
+    left:calc(50% - 5.65vh);
+    bottom:22%
+  }
+  #workload .thought-caption {
+    column-gap:6px
+  }
+  #workload .thought-caption h3 {
+    font-size:13px
+  }
+}
+
+@media(max-width:480px) {
+  #workload .task {
+    --thought-width:min(34vw,24vh);
+  }
+  #workload .workload-person {
+    height:22vh;
+    width:7.3vh;
+    left:calc(50% - 3.65vh);
+    bottom:24%
+  }
+  #workload .thought-caption {
+    margin-left:0;
+    margin-right:0;
+    column-gap:5px
+  }
+  #workload .thought-caption h3 {
+    font-size:12px
+  }
+  #workload .task-1 {
+    --card-left:8%; --card-top:26%;
+    --dot1-x:45%; --dot1-y:50%;
+    --dot2-x:40%; --dot2-y:46%
+  }
+  #workload .task-2 {
+    --card-left:55%; --card-top:29%;
+    --dot1-x:55%; --dot1-y:50%;
+    --dot2-x:60%; --dot2-y:46%
+  }
+  #workload .task-3 {
+    --card-left:55%; --card-top:62%;
+    --dot1-x:55%; --dot1-y:60%;
+    --dot2-x:53%; --dot2-y:66%
+  }
+  #workload .task-4 {
+    --card-left:5%; --card-top:62%;
+    --dot1-x:45%; --dot1-y:60%;
+    --dot2-x:43%; --dot2-y:66%
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  #workload .thought-content {
+    transform:none
+  }
+  #workload .thought-dot {
+    transform:translate(-50%,-50%)
+  }
+}
+
+html:not(.crossfade-ready) #workload .task-1 {
+  opacity:1;
+  --thought-small:1;
+  --thought-large:1;
+  --thought-image:1
+}

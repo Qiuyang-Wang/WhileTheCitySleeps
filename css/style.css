@@ -1,0 +1,1351 @@
+/* Change scene duration and the main layout here. All artwork stays untouched. */
+:root {
+  --section-height:240vh;
+  --opening-height:300vh;
+  --workload-height:320vh;
+  --ending-height:250vh;
+  --page-pad:clamp(24px,4.3vw,84px);
+  --rail-space:136px;
+  --ink:#202020;
+  --paper:#ececec;
+  --muted:#777;
+  --character-height:38vh;
+  --store-width:min(72vw,1200px);
+  --font:"Open Sans",Arial,sans-serif
+}
+
+html {
+  scroll-behavior:smooth;
+  background:#111111
+}
+
+body {
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.5;
+  color:var(--paper);
+  overflow-x:clip
+}
+
+button {
+  border:0;
+  background:none
+}
+
+a {
+  text-decoration:none
+}
+
+.skip-link {
+  position:fixed;
+  top:-90px;
+  left:20px;
+  z-index:100;
+  background:white;
+  color:black;
+  padding:12px
+}
+
+.skip-link:focus {
+  top:20px
+}
+
+.site-header {
+  position:fixed;
+  z-index:40;
+  top:0;
+  left:0;
+  width:100%;
+  padding:23px var(--page-pad);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  color:#fff;
+  mix-blend-mode:difference;
+  pointer-events:none
+}
+
+.site-header a,.site-header button {
+  pointer-events:auto
+}
+
+.wordmark {
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.01em
+}
+
+#starts-title {
+  font-size:clamp(15px,4vw,60px);
+  white-space:nowrap
+}
+
+#starts {
+  --character-height:35vh;
+  --mr-o-bottom:26%
+}
+
+.sound-control {
+  text-align:right;
+  font-size:11px
+}
+
+.sound-control button {
+  padding:4px 0 8px 15px
+}
+
+.sound-control button>span:first-child {
+  margin-right:7px
+}
+
+.sound-control #sound-status {
+  display:block;
+  font-size:10px;
+  max-width:180px
+}
+
+.timeline {
+  position:fixed;
+  right:var(--page-pad);
+  top:50%;
+  transform:translateY(-50%);
+  z-index:40;
+  color:white;
+  mix-blend-mode:difference;
+  display:flex;
+  flex-direction:column;
+  gap:10px
+}
+
+.timeline a {
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  font-size:10px;
+  letter-spacing:.08em;
+  position:relative;
+  opacity:.47
+}
+
+.timeline a[aria-current="step"] {
+  opacity:1;
+  font-weight:700
+}
+
+.timeline a:hover {
+  opacity:1
+}
+
+.story-section {
+  height:var(--section-height);
+  position:relative
+}
+
+.story-section:not(#city),.notes-section {
+  --font:"Quicksand",Arial,sans-serif;
+  font-family:var(--font);
+  font-weight:450
+}
+
+.story-section:not(#city) h2 {
+  font-weight:600
+}
+
+.opening {
+  height:var(--opening-height)
+}
+
+#workload {
+  height:var(--workload-height)
+}
+
+.ending {
+  height:var(--ending-height)
+}
+
+.sticky-scene {
+  position:sticky;
+  top:0;
+  height:100vh;
+  height:100svh;
+  isolation:isolate;
+  overflow:hidden
+}
+
+/* Sections are scroll markers; the visible scenes stay on the screen. */
+.notes-section {
+  position:relative;
+  height:100vh
+}
+
+.crossfade-ready .sticky-scene,
+.crossfade-ready .credits {
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  height:100svh;
+  z-index:10;
+  opacity:var(--scene-opacity,0);
+  visibility:hidden;
+  pointer-events:none
+}
+
+.crossfade-ready .is-visible {
+  visibility:visible
+}
+
+.crossfade-ready .is-active {
+  pointer-events:auto
+}
+
+.crossfade-ready .credits {
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:100px max(var(--page-pad),calc((100vw - 900px) / 2));
+  overflow-y:auto;
+  font-size:14px;
+  gap:28px
+}
+
+.crossfade-ready .credits summary {
+  text-align:left
+}
+
+.crossfade-ready .credits .replay {
+  font-size:10px;
+  letter-spacing:.12em
+}
+
+.dark-scene {
+  background:#111111;
+  color:#eeeeee
+}
+
+.light-scene {
+  background:var(--paper);
+  color:var(--ink)
+}
+
+.eyebrow {
+  font-size:11px;
+  letter-spacing:.2em;
+  font-weight:600;
+  margin-bottom:22px
+}
+
+.section-heading {
+  position:absolute;
+  top:15%;
+  left:var(--page-pad);
+  right:var(--rail-space);
+  z-index:12;
+  pointer-events:none
+}
+
+h1,h2 {
+  font-weight:700;
+  letter-spacing:-.055em;
+  line-height:1.06
+}
+
+h1 {
+  font-size:clamp(48px,6.1vw,100px)
+}
+
+h2 {
+  font-size:clamp(36px,4.1vw,70px)
+}
+
+.section-heading>p:last-child:not(.eyebrow) {
+  margin-top:20px;
+  font-size:17px
+}
+
+.scene-footer {
+  position:absolute;
+  z-index:20;
+  bottom:28px;
+  left:var(--page-pad);
+  right:var(--page-pad);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  border-top:0;
+  padding-top:19px
+}
+
+#clocks .scene-footer {
+  border-top:1px solid currentColor
+}
+
+.scene-footer>span,.scene-footer>a {
+  font-size:9px;
+  letter-spacing:.15em
+}
+
+.scene-footer>span:last-child:not(.scroll-cue) {
+  opacity:.55
+}
+
+.scene-footer p {
+  font-size:14px
+}
+
+.scroll-cue b {
+  font-size:20px;
+  margin-left:28px;
+  font-weight:400
+}
+
+.city-background {
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  object-position:50% 60%
+}
+
+.city-shade {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#11111177 0%,#11111122 38%,#11111100 65%),linear-gradient(180deg,#11111155 0%,#11111100 38%,#111111 95%)
+}
+
+.opening-copy {
+  position:absolute;
+  left:var(--page-pad);
+  top:15%;
+  z-index:10
+}
+
+.opening-copy>p:last-child {
+  font-size:15px;
+  margin-top:22px;
+  color:#c4c4c4
+}
+
+.store-stage {
+  position:absolute;
+  width:var(--store-width);
+  aspect-ratio:1448/1086;
+  left:48%;
+  bottom:7%;
+  transform:translateX(-50%) scale(var(--store-scale,1));
+  transform-origin:50% 65%;
+
+}
+
+.store-stage>img {
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:contain
+}
+
+.store-on {
+  opacity:var(--lights,0)
+}
+
+.opening-store {
+  left:55%;
+  width:min(68vw,1130px);
+  bottom:3%
+}
+
+/* Opening composition. Keep the original shop width, move the artwork lower. */
+#city,#return {
+  --opening-store-width:min(68vw,1130px);
+  --opening-store-bottom:clamp(-72px,-6vh,-30px)
+}
+
+#city .city-background {
+  object-position:50% 0%
+}
+
+#city .opening-copy {
+  top:clamp(80px,10vh,120px);
+  left:var(--page-pad);
+  right:var(--page-pad);
+  text-align:center
+}
+
+#city h1 {
+  font-family:"Bowlby One SC",var(--font);
+  font-weight:400;
+  font-size:clamp(18px,7.2vw,140px);
+  letter-spacing:.03em;
+  white-space:nowrap;
+  text-shadow:0 2px 12px #0a1f2d80
+}
+
+#city .opening-store,#return .return-store {
+  left:50%;
+  width:var(--opening-store-width);
+  bottom:var(--opening-store-bottom);
+  transform-origin:50% 82%
+}
+
+.opening-road {
+  position:absolute;
+  inset:calc(100% - var(--opening-store-bottom) - var(--opening-store-width) * .15) 0 0;
+  background:#222b32;
+  border-top:3px solid #59636a;
+  box-shadow:0 -5px 0 #303b44
+}
+
+.opening-road::after {
+  content:"";
+  position:absolute;
+  top:42%;
+  left:0;
+  right:0;
+  height:3px;
+  background:repeating-linear-gradient(90deg,#b7bcb6 0 64px,transparent 64px 128px)
+}
+
+.opening-scroll {
+  position:absolute;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:20;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  color:#eeeeee
+}
+
+.scroll-arrow {
+  font-size:26px;
+  line-height:1
+}
+
+.scroll-label {
+  font-size:12px;
+  letter-spacing:.08em;
+  animation:scroll-breathe 2.6s ease-in-out infinite
+}
+
+@keyframes scroll-breathe {
+  0%,100% { opacity:1; filter:blur(0) }
+  50% { opacity:.3; filter:blur(.5px) }
+}
+
+.door-opening {
+  position:absolute;
+  left:44%;
+  top:48.8%;
+  width:12%;
+  height:27.4%;
+  background:linear-gradient(90deg,#b4b4b4,#f0f0f0 50%,#b4b4b4);
+  opacity:var(--door-opacity,0);
+  clip-path:inset(0 0 0 0)
+}
+
+.door {
+  position:absolute;
+  top:48.8%;
+  width:6%;
+  height:27.4%;
+  border:3px solid #626262;
+  background:#c8c8c880;
+  opacity:var(--door-opacity,0)
+}
+
+.door::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:59%;
+  height:4%;
+  background:#777
+}
+
+.door-left {
+  left:44%;
+  transform:translateX(calc(-100% * var(--door-open,0)))
+}
+
+.door-right {
+  left:50%;
+  transform:translateX(calc(100% * var(--door-open,0)))
+}
+
+.interior {
+  position:absolute;
+  inset:34% var(--rail-space) 11% var(--page-pad);
+  overflow:hidden;
+  background:#d9d9d9;
+  border-bottom:1px solid #b1b1b1
+}
+
+/* Raise the ceiling while keeping the shelves and floor at their original level. */
+#starts .interior {
+  top:26%
+}
+
+#starts .back-wall {
+  top:20%;
+  bottom:26%
+}
+
+#starts .shelf {
+  top:30%;
+  height:56%
+}
+
+#starts .floor-lines {
+  top:70%
+}
+
+.back-wall {
+  position:absolute;
+  inset:8% 26% 30%;
+  border:1px solid #aaa;
+  background:repeating-linear-gradient(0deg,#d6d6d6 0px,#d6d6d6 46px,#b6b6b6 47px,#b6b6b6 48px)
+}
+
+.ceiling-lines {
+  position:absolute;
+  top:0;
+  left:15%;
+  right:15%;
+  height:20%;
+  border-top:2px solid #777;
+  transform:perspective(200px) rotateX(-35deg);
+  background:repeating-linear-gradient(0deg,transparent 0px,transparent 24px,#aaa 25px,#aaa 27px)
+}
+
+.shelf {
+  position:absolute;
+  top:20%;
+  width:28%;
+  height:64%;
+  border:7px solid #777;
+  background:repeating-linear-gradient(0deg,#555 0px,#555 30px,#aaa 30px,#aaa 34px);
+  z-index:2
+}
+
+.shelf-left {
+  left:0;
+  transform:perspective(700px) rotateY(28deg);
+  transform-origin:left center
+}
+
+.shelf-right {
+  right:0;
+  transform:perspective(700px) rotateY(-28deg);
+  transform-origin:right center
+}
+
+.floor-lines {
+  position:absolute;
+  inset:65% 0 0;
+  background:repeating-linear-gradient(0deg,transparent 0px,transparent 27px,#bbb 28px,#bbb 29px);
+  transform:perspective(130px) rotateX(20deg);
+  border-top:1px solid #aaa
+}
+
+.asset-note {
+  position:absolute;
+  bottom:12px;
+  left:16px;
+  font-size:8px;
+  letter-spacing:.16em;
+  opacity:.55;
+  z-index:5
+}
+
+.character {
+  position:absolute;
+  height:var(--character-height);
+  width:calc(var(--character-height) * .332);
+  z-index:5;
+  margin:0;
+  transform-origin:50% 100%
+}
+
+.character img {
+  height:100%;
+  width:100%;
+  object-fit:contain;
+
+}
+
+.character figcaption {
+  position:absolute;
+  top:44%;
+  left:50%;
+  transform:translateX(-50%);
+  white-space:nowrap;
+  font-size:10px;
+  letter-spacing:.12em;
+  color:#161616;
+  font-weight:600
+}
+
+.entering {
+  bottom:var(--mr-o-bottom);
+  left:12%;
+  transform:translateX(var(--walk-x,0px))
+}
+
+.counter {
+  position:absolute;
+
+  object-fit:contain;
+  z-index:8;
+  pointer-events:none
+}
+
+.counter-small {
+  width:min(40vw,650px);
+  right:13%;
+  bottom:9%
+}
+
+.shopkeeper {
+  left:65%;
+  bottom:26%;
+  height:35vh;
+  width:11.6vh
+}
+
+.workload-person {
+  height:45vh;
+  width:15vh;
+  left:calc(49% - 7.5vh);
+  bottom:19%
+}
+
+
+
+.task {
+  position:absolute;
+  z-index:9;
+  opacity:0;
+  transform:translateY(var(--task-y,12px));
+  width:30%;
+  max-width:360px
+}
+
+.task>span {
+  font-size:10px;
+  letter-spacing:.16em;
+  color:#888
+}
+
+.task h3 {
+  font-size:clamp(18px,2.1vw,32px);
+  font-weight:450;
+  line-height:1.2;
+  margin-top:9px;
+  letter-spacing:-.03em
+}
+
+.task i {
+  display:block;
+  height:1px;
+  width:70%;
+  background:#888;
+  margin-top:18px
+}
+
+.task-1 {
+  top:43%;
+  left:12%
+}
+
+.task-2 {
+  top:43%;
+  left:62%
+}
+
+.task-3 {
+  top:66%;
+  left:61%
+}
+
+.task-4 {
+  top:67%;
+  left:13%
+}
+
+.task-progress {
+  display:flex;
+  gap:9px
+}
+
+.task-progress i {
+  width:28px;
+  height:2px;
+  background:#c3c3c3
+}
+
+.task-progress i.active {
+  background:#242424
+}
+
+.visitor {
+  bottom:15%;
+  height:38vh;
+  width:12.6vh;
+  z-index:10;
+  opacity:0
+}
+
+.worker-a {
+  left:20%
+}
+
+.worker-b {
+  left:44%;
+  height:34vh;
+  width:11.3vh;
+  bottom:20%
+}
+
+.customer {
+  left:15%;
+  height:45vh;
+  width:15vh;
+  bottom:10%;
+  z-index:11
+}
+
+
+
+
+
+.customer figcaption {
+  color:#161616
+}
+
+.low-scene {
+  background:#181818
+}
+
+.low-room {
+  position:absolute;
+  inset:0;
+  background:#9b9b9b;
+  opacity:var(--room-light,.58)
+}
+
+.low-room .ceiling-lines {
+  top:16%;
+  left:45%;
+  right:15%;
+  height:8%;
+  border-color:#eee
+}
+
+.wall-grid {
+  position:absolute;
+  inset:32% 14% 24% 48%;
+  background-image:linear-gradient(#7777 1px,transparent 1px),linear-gradient(90deg,#7777 1px,transparent 1px);
+  background-size:100px 75px
+}
+
+.low-scene .section-heading {
+  top:18%
+}
+
+.low-scene h2 {
+  font-size:clamp(80px,12vw,190px);
+  letter-spacing:-.065em
+}
+
+.low-scene h2 span {
+  font-size:.2em;
+  letter-spacing:.03em
+}
+
+.tired-person {
+  left:65%;
+  bottom:29%;
+  height:37vh;
+  width:12.3vh;
+  transform:translateY(var(--tired-y,0px)) rotate(var(--tired-angle,0deg));
+
+}
+
+
+
+.tired-counter {
+  width:48%;
+  right:10%;
+  bottom:4%;
+
+}
+
+.morning-scene {
+  background:#eee
+}
+
+.day-panel,.bedroom {
+  position:absolute;
+  top:37%;
+  bottom:12%;
+  overflow:hidden
+}
+
+.day-panel {
+  left:var(--page-pad);
+  width:41%;
+  background:#c5c5c5
+}
+
+.day-panel>img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  opacity:1
+}
+
+.homeward {
+  height:20vh;
+  width:6.6vh;
+  bottom:8%;
+  left:45%;
+  transform:translateX(var(--home-x,0px));
+  opacity:var(--home-opacity,1)
+}
+
+
+
+.bedroom {
+  left:calc(41% + var(--page-pad) + 14px);
+  right:var(--rail-space);
+  background:#d9d9d9;
+  border:1px solid #bbb;
+  opacity:var(--bedroom-opacity,.3)
+}
+
+.window {
+  position:absolute;
+  width:40%;
+  height:52%;
+  top:6%;
+  right:9%;
+  background:#f6f6f6;
+  border:5px solid #999
+}
+
+.window::before,.window::after {
+  content:"";
+  position:absolute;
+  background:#aaa
+}
+
+.window::before {
+  width:3px;
+  height:100%;
+  left:50%
+}
+
+.window::after {
+  height:3px;
+  width:100%;
+  top:50%
+}
+
+.curtain {
+  position:absolute;
+  left:-12px;
+  top:-8px;
+  width:53%;
+  height:110%;
+  background:repeating-linear-gradient(90deg,#bbb 0px,#bbb 12px,#c8c8c8 12px,#c8c8c8 23px);
+  border-top:4px solid #777;
+  z-index:1
+}
+
+.bed {
+  position:absolute;
+  left:8%;
+  right:6%;
+  bottom:17%;
+  height:25%;
+  background:#aaa;
+  border:2px solid #707070
+}
+
+.pillow {
+  position:absolute;
+  width:26%;
+  height:70%;
+  left:3%;
+  top:-25%;
+  background:#ececec;
+  border:1px solid #888;
+  transform:rotate(-7deg)
+}
+
+.sleeping-person {
+  position:absolute;
+  left:33%;
+  bottom:-45%;
+  height:230%;
+  width:auto;
+  transform:rotate(-90deg);
+  transform-origin:center;
+
+}
+
+.blanket {
+  position:absolute;
+  inset:0 0 0 28%;
+  background:#bbb;
+  border-left:1px solid #888;
+  transform:skewY(-3deg)
+}
+
+.clock-pair {
+  position:absolute;
+  left:12%;
+  right:19%;
+  top:40%;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-around;
+  gap:30px
+}
+
+.clock-pair figure {
+  text-align:center
+}
+
+.clock {
+  position:relative;
+  width:clamp(180px,20vw,340px);
+  aspect-ratio:1;
+  border:2px solid #333;
+  border-radius:50%;
+  background:#f4f4f4;
+  color:#252525
+}
+
+.clock.work {
+  background:#252525;
+  color:#eee
+}
+
+.clock>span:not(.clock-symbol) {
+  position:absolute;
+  font-size:clamp(14px,1.4vw,22px)
+}
+
+.n12 {
+  top:5%;
+  left:50%;
+  transform:translateX(-50%)
+}
+
+.n3 {
+  right:6%;
+  top:50%;
+  transform:translateY(-50%)
+}
+
+.n6 {
+  bottom:4%;
+  left:50%;
+  transform:translateX(-50%)
+}
+
+.n9 {
+  left:6%;
+  top:50%;
+  transform:translateY(-50%)
+}
+
+.clock-symbol {
+  position:absolute;
+  right:24%;
+  bottom:23%;
+  font-size:clamp(23px,3vw,42px);
+  line-height:1
+}
+
+.hand {
+  position:absolute;
+  left:calc(50% - 2px);
+  bottom:50%;
+  width:4px;
+  background:currentColor;
+  transform-origin:50% 100%;
+  border-radius:2px
+}
+
+.hand.hour {
+  height:26%;
+  transform:rotate(var(--hour-angle,270deg))
+}
+
+.hand.minute {
+  width:2px;
+  left:calc(50% - 1px);
+  height:36%;
+  transform:rotate(var(--minute-angle,0deg))
+}
+
+.clock-pin {
+  position:absolute;
+  left:calc(50% - 5px);
+  top:calc(50% - 5px);
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:currentColor
+}
+
+.work {
+  --hour-angle:70deg;
+  --minute-angle:335deg
+}
+
+.clock-pair figcaption {
+  font-size:16px;
+  margin-top:20px;
+  font-weight:600
+}
+
+.clock-pair figcaption span {
+  display:block;
+  font-size:12px;
+  font-weight:450;
+  color:#777;
+  margin-top:4px
+}
+
+.clock-divider {
+  align-self:center;
+  font-size:38px;
+  color:#999;
+  margin-bottom:64px
+}
+
+.ending-copy h2 {
+  font-size:clamp(45px,5.5vw,90px)
+}
+
+.return-store {
+  left:55%;
+  width:min(68vw,1130px);
+  bottom:3%
+}
+
+.replay span {
+  margin-left:25px;
+  font-size:18px
+}
+
+.credits {
+  padding:35px var(--page-pad) 50px;
+  background:#111111;
+  color:#aaa;
+  display:flex;
+  justify-content:space-between;
+  gap:35px;
+  font-size:11px
+}
+
+.credits>p {
+  color:#ddd
+}
+
+.credits>p span {
+  display:block;
+  color:#888;
+  margin-top:6px
+}
+
+.credits details {
+  max-width:560px
+}
+
+.credits summary {
+  cursor:pointer;
+  text-align:right
+}
+
+.credits details p {
+  margin-top:14px;
+  line-height:1.8
+}
+
+.no-script {
+  position:fixed;
+  bottom:0;
+  z-index:100;
+  background:#fff;
+  color:#111;
+  padding:8px
+}
+
+@media(min-width:1700px) {
+  .opening-copy,.ending-copy {
+    top:17%
+  }
+  .opening-store,.return-store {
+    bottom:1%
+  }
+  .section-heading {
+    top:17%
+  }
+}
+
+@media(max-width:800px) {
+  :root {
+    --rail-space:85px;
+    --page-pad:24px;
+    --character-height:32vh
+  }
+  .site-header {
+    padding-top:18px
+  }
+  .timeline {
+    right:20px;
+    gap:5px
+  }
+  .timeline a {
+    font-size:8px;
+    gap:10px;
+    min-height:33px
+  }
+  .wordmark {
+    font-size:11px
+  }
+  .wordmark span {
+    font-size:8px
+  }
+  .section-heading {
+    top:16%
+  }
+  .eyebrow {
+    font-size:9px;
+    margin-bottom:16px
+  }
+  h2 {
+    font-size:clamp(30px,5.5vw,44px)
+  }
+  .opening-copy {
+    top:20%
+  }
+  h1 {
+    font-size:clamp(46px,9vw,72px)
+  }
+  .opening-store,.return-store {
+    width:105vw;
+    left:47%;
+    bottom:8%
+  }
+  #city,#return {
+    --opening-store-width:105vw;
+    --opening-store-bottom:6vh
+  }
+  #city h1 {
+    font-size:clamp(18px,6.7vw,56px)
+  }
+  .scene-footer>span:last-child:not(.scroll-cue) {
+    display:none
+  }
+  .scene-footer {
+    bottom:23px;
+    padding-top:14px
+  }
+  .scene-footer p {
+    font-size:12px;
+    max-width:85%
+  }
+  .interior {
+    inset:38% 85px 14% 24px
+  }
+  .counter-small {
+    width:55%;
+    right:12%;
+    bottom:13%
+  }
+  .shopkeeper {
+    left:60%;
+    height:28vh;
+    width:9.3vh;
+    bottom:31%
+  }
+  #starts {
+    --character-height:28vh;
+    --mr-o-bottom:31%
+  }
+  .task {
+    width:33%
+  }
+  .task h3 {
+    font-size:19px
+  }
+  .task-1,.task-4 {
+    left:6%
+  }
+  .task-2,.task-3 {
+    left:58%
+  }
+  .workload-person {
+    height:34vh;
+    width:11.3vh;
+    left:calc(46% - 5.65vh);
+    bottom:22%
+  }
+  .task-1,.task-2 {
+    top:46%
+  }
+  .task-3,.task-4 {
+    top:69%
+  }
+  .visitor {
+    height:30vh;
+    width:10vh
+  }
+  .customer {
+    height:35vh;
+    width:11.6vh
+  }
+  .low-scene h2 {
+    font-size:20vw
+  }
+  .tired-person {
+    left:59%;
+    bottom:30%;
+    height:31vh;
+    width:10.3vh
+  }
+  .tired-counter {
+    width:70%;
+    right:8%;
+    bottom:11%
+  }
+  .day-panel {
+    width:36%;
+    top:40%
+  }
+  .bedroom {
+    left:calc(36% + 38px);
+    top:40%
+  }
+  .clock-pair {
+    left:6%;
+    right:15%;
+    gap:12px;
+    top:44%
+  }
+  .clock {
+    width:clamp(116px,28vw,215px)
+  }
+  .clock-divider {
+    font-size:26px;
+    margin-bottom:70px
+  }
+  .clock-pair figcaption {
+    font-size:12px
+  }
+  .clock-pair figcaption span {
+    font-size:10px
+  }
+  .clock-symbol {
+    font-size:25px
+  }
+  .credits {
+    flex-direction:column
+  }
+  .credits summary {
+    text-align:left
+  }
+  .ending-copy {
+    top:21%
+  }
+  .ending-copy h2 {
+    font-size:clamp(38px,7vw,60px)
+  }
+}
+
+/* Small screens keep the same scenes with less crowding. */
+@media(max-width:480px) {
+  .clock-pair {
+    left:24px;
+    right:85px;
+    gap:8px
+  }
+  .clock {
+    width:100px
+  }
+  .clock-divider {
+    font-size:20px
+  }
+  .clock-pair figcaption {
+    font-size:10px
+  }
+  .clock-pair figcaption span {
+    font-size:9px
+  }
+  .clock-symbol {
+    font-size:20px
+  }
+  .clock>span:not(.clock-symbol) {
+    font-size:12px
+  }
+  .shopkeeper {
+    height:24vh;
+    width:8vh;
+    bottom:25%
+  }
+  #starts {
+    --character-height:24vh;
+    --mr-o-bottom:25%
+  }
+  .visitor {
+    height:24vh;
+    width:8vh;
+    bottom:19%
+  }
+  .worker-b {
+    bottom:23%;
+    left:43%
+  }
+  .customer {
+    height:28vh;
+    width:9.3vh;
+    bottom:14%
+  }
+  .sleeping-person {
+    height:min(230%,26vw);
+    left:22%;
+    bottom:15%
+  }
+  .clock .hand {
+    width:3px;
+    left:calc(50% - 1.5px)
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto
+  }
+  .character,.store-stage,.door,.hand {
+    transition:none!important
+  }
+  .scroll-cue b {
+    animation:none
+  }
+  .scroll-label {
+    animation:none
+  }
+}
+

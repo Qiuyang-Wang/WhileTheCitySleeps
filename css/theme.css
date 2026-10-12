@@ -1,0 +1,257 @@
+/* Amber Slate, https://21st.dev/@serafimcloud/themes/amber-slate
+   Approximate 60/30/10 hierarchy across the story: mist surfaces, slate scenery,
+   orange details. Supplied artwork keeps its original colors.
+   Dark and muted shades are derived from the theme for readable text. */
+:root {
+  --paper:#e8ebed;
+  --ink:#2f4b79;
+  --muted:#54677a;
+  --theme-surface:#f9fafb;
+  --theme-panel:#d6e4f0;
+  --theme-night:#17283f;
+  --theme-line:#a7b8c9;
+  --theme-accent:#df6035;
+  --theme-accent-ink:#ad4020;
+  --theme-accent-light:#ff9b72;
+  --chrome-ink:var(--theme-surface);
+  --chrome-muted:#c2d0df;
+  --chrome-accent:var(--theme-accent-light)
+}
+
+html,.dark-scene,.credits {
+  background:var(--theme-night)
+}
+
+body,.dark-scene {
+  color:var(--paper)
+}
+
+.light-scene,.morning-scene {
+  background:var(--paper);
+  color:var(--ink)
+}
+
+/* Use explicit navigation colors so the accent stays orange on every scene. */
+body:has(.light-scene.is-active) {
+  --chrome-ink:var(--ink);
+  --chrome-muted:var(--muted);
+  --chrome-accent:var(--theme-accent-ink)
+}
+
+.site-header,.timeline {
+  mix-blend-mode:normal;
+  color:var(--chrome-ink)
+}
+
+.timeline a {
+  color:var(--chrome-muted);
+  opacity:1
+}
+
+.timeline a[aria-current="step"],.timeline a:hover {
+  color:var(--chrome-accent)
+}
+
+body:has(#city .is-active) .wordmark {
+  color:var(--theme-night)
+}
+
+.sound-control #sound-status {
+  color:var(--chrome-accent)
+}
+
+a,button {
+  transition:color .2s ease
+}
+
+::selection {
+  background:var(--theme-accent);
+  color:var(--theme-surface)
+}
+
+.skip-link {
+  background:var(--paper);
+  color:var(--ink)
+}
+
+#city h1,.opening-scroll {
+  color:var(--theme-surface)
+}
+
+.opening-road {
+  background:var(--theme-night);
+  border-color:var(--muted);
+  box-shadow:0 -5px 0 var(--ink)
+}
+
+.opening-road::after {
+  background:repeating-linear-gradient(90deg,var(--paper) 0 64px,transparent 64px 128px)
+}
+
+.city-shade {
+  background:linear-gradient(90deg,#17283f77 0%,#17283f22 38%,#17283f00 65%),linear-gradient(180deg,#17283f55 0%,#17283f00 38%,var(--theme-night) 95%)
+}
+
+.door-opening {
+  background:linear-gradient(90deg,var(--theme-line),var(--theme-panel) 50%,var(--theme-line))
+}
+
+.door {
+  border-color:var(--muted);
+  background:#d6e4f080
+}
+
+.door::after {
+  background:var(--muted)
+}
+
+.interior,.bedroom {
+  background:var(--theme-panel);
+  border-color:var(--theme-line)
+}
+
+.back-wall {
+  border-color:var(--theme-line);
+  background:repeating-linear-gradient(0deg,var(--theme-panel) 0 46px,var(--theme-line) 47px 48px)
+}
+
+.ceiling-lines {
+  border-color:var(--muted);
+  background:repeating-linear-gradient(0deg,transparent 0 24px,var(--theme-line) 25px 27px)
+}
+
+.shelf {
+  border-color:var(--muted);
+  background:repeating-linear-gradient(0deg,var(--ink) 0 30px,var(--theme-line) 30px 34px)
+}
+
+.floor-lines {
+  background:repeating-linear-gradient(0deg,transparent 0 27px,var(--theme-line) 28px 29px);
+  border-color:var(--theme-line)
+}
+
+.asset-note,.task>span {
+  color:var(--muted);
+  opacity:1
+}
+
+.character figcaption,.customer figcaption {
+  color:var(--theme-night)
+}
+
+.task i,.task-progress i.active {
+  background:var(--theme-accent)
+}
+
+.task-progress i {
+  background:var(--theme-line)
+}
+
+.low-scene {
+  background:var(--theme-night)
+}
+
+.low-room {
+  background:var(--ink)
+}
+
+.low-room .ceiling-lines {
+  border-color:var(--theme-panel)
+}
+
+.wall-grid {
+  background-image:linear-gradient(#a7b8c933 1px,transparent 1px),linear-gradient(90deg,#a7b8c933 1px,transparent 1px)
+}
+
+.low-scene h2 {
+  color:var(--theme-accent-light)
+}
+
+.day-panel {
+  background:var(--theme-panel)
+}
+
+.window {
+  background:var(--theme-surface);
+  border-color:var(--ink)
+}
+
+.window::before,.window::after {
+  background:var(--theme-line)
+}
+
+.curtain {
+  background:repeating-linear-gradient(90deg,var(--ink) 0 12px,#48638a 12px 23px);
+  border-color:var(--theme-night)
+}
+
+.bed {
+  background:var(--ink);
+  border-color:var(--muted)
+}
+
+.pillow {
+  background:var(--theme-surface);
+  border-color:var(--theme-line)
+}
+
+.blanket {
+  background:var(--theme-line);
+  border-color:var(--muted)
+}
+
+.clock {
+  background:var(--theme-surface);
+  border-color:var(--ink);
+  color:var(--ink)
+}
+
+.clock.work {
+  background:var(--ink);
+  color:var(--paper)
+}
+
+.clock .hour {
+  background:var(--theme-accent)
+}
+
+.clock-symbol,.clock-divider {
+  color:var(--theme-accent-ink)
+}
+
+.clock.work .clock-symbol {
+  color:var(--theme-accent-light)
+}
+
+.clock-pair figcaption span {
+  color:var(--muted)
+}
+
+#clocks .scene-footer {
+  border-color:var(--theme-line)
+}
+
+.ending-copy>p:last-child,.credits,.credits>p span {
+  color:#c2d0df
+}
+
+.scene-footer>span:last-child:not(.scroll-cue) {
+  opacity:.8
+}
+
+.credits>p {
+  color:var(--paper)
+}
+
+.replay {
+  color:var(--theme-accent-light)
+}
+
+.credits summary {
+  color:var(--paper)
+}
+
+.no-script {
+  background:var(--paper);
+  color:var(--ink)
+}
