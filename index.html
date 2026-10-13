@@ -18,145 +18,145 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
-  <audio id="background-music" src="assets/audio/shining.mp3" autoplay loop preload="auto"></audio>
-  <a class="skip-link" href="#starts">Skip opening</a>
-  <header class="site-header">
-    <a href="#city" class="wordmark">A night with Mr O</a>
-    <div class="sound-control"><button id="sound-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♪</span> <span id="sound-label">Sound Off</span></button><span id="sound-status" role="status"></span></div>
-  </header>
+<audio id="background-music" src="assets/audio/shining.mp3" autoplay loop preload="auto"></audio>
+<a class="skip-link" href="#starts">Skip opening</a>
+<header class="site-header">
+  <a href="#city" class="wordmark">A night with Mr O</a>
+  <div class="sound-control"><button id="sound-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♪</span> <span id="sound-label">Sound Off</span></button><span id="sound-status" role="status"></span></div>
+</header>
 
-  <nav class="timeline" aria-label="Story timeline">
-    <a href="#city" aria-label="10 PM — City sleeps" aria-current="step"><span>10 PM</span></a>
-    <a href="#starts" aria-label="12 AM — Mr O starts work"><span>12 AM</span></a>
-    <a href="#workload" aria-label="1 to 3 AM — Workload and other night workers"><span>1–3 AM</span></a>
-    <a href="#low" aria-label="3:20 AM — The long hours"><span>3:20 AM</span></a>
-    <a href="#morning" aria-label="8 AM — Daytime sleep"><span>8 AM</span></a>
-    <a href="#clocks" aria-label="Day — Body clock and work schedule"><span>DAY</span></a>
-    <a href="#return" aria-label="9 PM — Return to night"><span>9 PM</span></a>
-  </nav>
-  <main>
-    <section class="story-section opening" id="city" data-time="0" aria-labelledby="opening-title">
-      <div class="sticky-scene dark-scene">
-        <img class="city-background" src="assets/backgrounds/city-night.png" alt="Layers of city buildings at night">
-        <div class="opening-road" aria-hidden="true"></div>
-        <div class="opening-copy"><h1 id="opening-title">While the city sleeps</h1></div>
-        <div class="store-stage opening-store" aria-label="A convenience store slowly lights up and its doors open">
-          <img class="store-off" src="assets/store/night-store.png" alt="The convenience store with its lights off">
-          <img class="store-on" src="assets/store/light-store.png" alt="" aria-hidden="true">
-          <div class="door-opening" aria-hidden="true"></div><div class="door door-left" aria-hidden="true"></div><div class="door door-right" aria-hidden="true"></div>
-        </div>
-        <div class="opening-scroll"><span class="scroll-arrow" aria-hidden="true">↓</span><span class="scroll-label">Scroll</span></div>
+<nav class="timeline" aria-label="Story timeline">
+  <a href="#city" aria-label="10 PM — City sleeps" aria-current="step"><span>10 PM</span></a>
+  <a href="#starts" aria-label="12 AM — Mr O starts work"><span>12 AM</span></a>
+  <a href="#workload" aria-label="1 to 3 AM — Workload and other night workers"><span>1–3 AM</span></a>
+  <a href="#low" aria-label="3:20 AM — The long hours"><span>3:20 AM</span></a>
+  <a href="#morning" aria-label="8 AM — Daytime sleep"><span>8 AM</span></a>
+  <a href="#clocks" aria-label="Day — Body clock and work schedule"><span>DAY</span></a>
+  <a href="#return" aria-label="9 PM — Return to night"><span>9 PM</span></a>
+</nav>
+<main>
+  <section class="story-section opening" id="city" data-time="0" aria-labelledby="opening-title">
+    <div class="sticky-scene dark-scene">
+      <img class="city-background" src="assets/backgrounds/city-night.png" alt="Layers of city buildings at night">
+      <div class="opening-road" aria-hidden="true"></div>
+      <div class="opening-copy"><h1 id="opening-title">While the city sleeps</h1></div>
+      <div class="store-stage opening-store" aria-label="A convenience store slowly lights up and its doors open">
+        <img class="store-off" src="assets/store/night-store.png" alt="The convenience store with its lights off">
+        <img class="store-on" src="assets/store/light-store.png" alt="" aria-hidden="true">
+        <div class="door-opening" aria-hidden="true"></div><div class="door door-left" aria-hidden="true"></div><div class="door door-right" aria-hidden="true"></div>
       </div>
-    </section>
+      <div class="opening-scroll"><span class="scroll-arrow" aria-hidden="true">↓</span><span class="scroll-label">Scroll</span></div>
+    </div>
+  </section>
 
-    <section class="story-section" id="starts" data-time="1" aria-labelledby="starts-title">
-      <div class="sticky-scene light-scene">
-        <div class="section-heading"><h2 id="starts-title">Push open this door, and the night shift begins.</h2></div>
-        <div class="interior supermarket-interior"><img src="assets/backgrounds/Supermarket.png" alt="A brightly lit convenience store interior with shelves on both sides"></div>
-        <figure class="character mr-o entering mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O starting his shift"><figcaption>MR O</figcaption></figure>
-        <img class="counter counter-small" src="assets/store/counter.png" alt="The shop counter and till">
-        <div class="scene-footer" aria-hidden="true"></div>
-      </div>
-    </section>
+  <section class="story-section" id="starts" data-time="1" aria-labelledby="starts-title">
+    <div class="sticky-scene light-scene">
+      <div class="section-heading"><h2 id="starts-title">Push open this door, and the night shift begins.</h2></div>
+      <div class="interior supermarket-interior"><img src="assets/backgrounds/Supermarket.png" alt="A brightly lit convenience store interior with shelves on both sides"></div>
+      <figure class="character mr-o entering mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O starting his shift"><figcaption>MR O</figcaption></figure>
+      <img class="counter counter-small" src="assets/store/counter.png" alt="The shop counter and till">
+      <div class="scene-footer" aria-hidden="true"></div>
+    </div>
+  </section>
 
-    <section class="story-section" id="workload" data-time="2" aria-labelledby="workload-title">
-      <div class="sticky-scene light-scene workload-scene">
-        <div class="section-heading"><h2 id="workload-title">The shop is quiet,<br>but the work never stops.</h2></div>
-        <figure class="character workload-person mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O"><figcaption>MR O</figcaption></figure>
-        <div class="task task-1" aria-hidden="true">
-          <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
-          <div class="thought-content"><div class="thought-caption"><span>01</span><h3>Serving customers</h3><i aria-hidden="true"></i></div><img src="assets/tasks/1.png" alt="A customer shopping with a basket" width="828" height="462"></div>
-        </div>
-        <div class="task task-2" aria-hidden="true">
-          <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
-          <div class="thought-content"><div class="thought-caption"><span>02</span><h3>Operating the till</h3><i aria-hidden="true"></i></div><img src="assets/tasks/2.png" alt="Notes and coins handled at the till" width="828" height="462"></div>
-        </div>
-        <div class="task task-3" aria-hidden="true">
-          <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
-          <div class="thought-content"><div class="thought-caption"><span>03</span><h3>Restocking shelves</h3><i aria-hidden="true"></i></div><img src="assets/tasks/3.png" alt="Cans lined up on a shop shelf" width="828" height="462"></div>
-        </div>
-        <div class="task task-4" aria-hidden="true">
-          <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
-          <div class="thought-content"><div class="thought-caption"><span>04</span><h3>Arranging displays</h3><i aria-hidden="true"></i></div><img src="assets/tasks/4.png" alt="Food arranged on shop display stands" width="828" height="462"></div>
-        </div>
-        <div class="scene-footer"><div class="task-progress" aria-label="Four tasks"><i></i><i></i><i></i><i></i></div></div>
+  <section class="story-section" id="workload" data-time="2" aria-labelledby="workload-title">
+    <div class="sticky-scene light-scene workload-scene">
+      <div class="section-heading"><h2 id="workload-title">The shop is quiet,<br>but the work never stops.</h2></div>
+      <figure class="character workload-person mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O"><figcaption>MR O</figcaption></figure>
+      <div class="task task-1" aria-hidden="true">
+        <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
+        <div class="thought-content"><div class="thought-caption"><span>01</span><h3>Serving customers</h3><i aria-hidden="true"></i></div><img src="assets/tasks/1.png" alt="A customer shopping with a basket" width="828" height="462"></div>
       </div>
-    </section>
+      <div class="task task-2" aria-hidden="true">
+        <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
+        <div class="thought-content"><div class="thought-caption"><span>02</span><h3>Operating the till</h3><i aria-hidden="true"></i></div><img src="assets/tasks/2.png" alt="Notes and coins handled at the till" width="828" height="462"></div>
+      </div>
+      <div class="task task-3" aria-hidden="true">
+        <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
+        <div class="thought-content"><div class="thought-caption"><span>03</span><h3>Restocking shelves</h3><i aria-hidden="true"></i></div><img src="assets/tasks/3.png" alt="Cans lined up on a shop shelf" width="828" height="462"></div>
+      </div>
+      <div class="task task-4" aria-hidden="true">
+        <span class="thought-dot thought-dot-small" aria-hidden="true"></span><span class="thought-dot thought-dot-large" aria-hidden="true"></span>
+        <div class="thought-content"><div class="thought-caption"><span>04</span><h3>Arranging displays</h3><i aria-hidden="true"></i></div><img src="assets/tasks/4.png" alt="Food arranged on shop display stands" width="828" height="462"></div>
+      </div>
+      <div class="scene-footer"><div class="task-progress" aria-label="Four tasks"><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </section>
 
-    <section class="story-section" id="workers" data-time="2" aria-labelledby="workers-title">
-      <div class="sticky-scene light-scene">
-        <div class="section-heading"><h2 id="workers-title">He isn’t the only one still awake.</h2><p class="workers-note">On city nights, there are others keeping watch too</p></div>
-        <div class="interior supermarket-interior"><img src="assets/backgrounds/Supermarket.png" alt="A brightly lit convenience store interior with shelves on both sides"></div>
-        <figure class="character shopkeeper mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O behind the counter"></figure>
-        <img class="counter counter-small" src="assets/store/counter.png" alt="The convenience store counter">
-        <figure class="character visitor worker-a"><img src="assets/characters/character-placeholder.png" alt="Worker A, placeholder"><figcaption>WORKER A</figcaption></figure>
-        <figure class="character visitor worker-b"><img src="assets/characters/character-placeholder.png" alt="Worker B, placeholder"><figcaption>WORKER B</figcaption></figure>
-        <figure class="character visitor customer"><img src="assets/characters/character-placeholder.png" alt="A customer passing through"><figcaption>CUSTOMER</figcaption></figure>
-      </div>
-    </section>
+  <section class="story-section" id="workers" data-time="2" aria-labelledby="workers-title">
+    <div class="sticky-scene light-scene">
+      <div class="section-heading"><h2 id="workers-title">He isn’t the only one still awake.</h2><p class="workers-note">On city nights, there are others keeping watch too</p></div>
+      <div class="interior supermarket-interior"><img src="assets/backgrounds/Supermarket.png" alt="A brightly lit convenience store interior with shelves on both sides"></div>
+      <figure class="character shopkeeper mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O behind the counter"></figure>
+      <img class="counter counter-small" src="assets/store/counter.png" alt="The convenience store counter">
+      <figure class="character visitor worker-a"><img src="assets/characters/taxi-driver.png" alt="A taxi driver on the night shift"></figure>
+      <figure class="character visitor worker-b"><img src="assets/characters/courier.png" alt="A courier on the night shift"></figure>
+      <figure class="character visitor customer"><img src="assets/characters/cleaner.png" alt="A cleaner on the night shift"></figure>
+    </div>
+  </section>
 
-    <section class="story-section" id="low" data-time="3" aria-labelledby="low-title">
-      <div class="sticky-scene dark-scene low-scene">
-        <div class="low-room" aria-hidden="true"><div class="ceiling-lines"></div><div class="wall-grid"></div></div>
-        <div class="section-heading"><h2 id="low-title">3:20 <span>AM</span></h2><div class="fatigue-copy"><p>His body is already yearning for <strong class="sleep-emphasis">sleep</strong>,</p><p>but the work isn’t over yet.</p></div></div>
-        <div class="fatigue-bubble" aria-hidden="true"><img class="expression-normal" src="assets/characters/o-bubble-normal.png" alt=""><img class="expression-tired" src="assets/characters/o-bubble-tired.png" alt=""></div>
-        <figure class="character tired-person mr-o-portrait" role="img" aria-label="Mr O becomes tired and slumps behind the counter"><img class="expression-normal" src="assets/characters/o-normal.png" alt="" aria-hidden="true"><img class="expression-tired" src="assets/characters/o-tired.png" alt="" aria-hidden="true"></figure>
-        <img class="counter tired-counter" src="assets/store/counter.png" alt="The till remains open">
-      </div>
-    </section>
+  <section class="story-section" id="low" data-time="3" aria-labelledby="low-title">
+    <div class="sticky-scene dark-scene low-scene">
+      <div class="low-room" aria-hidden="true"><div class="ceiling-lines"></div><div class="wall-grid"></div></div>
+      <div class="section-heading"><h2 id="low-title">3:20 <span>AM</span></h2><div class="fatigue-copy"><p>His body is already yearning for <strong class="sleep-emphasis">sleep</strong>,</p><p>but the work isn’t over yet.</p></div></div>
+      <div class="fatigue-bubble" aria-hidden="true"><img class="expression-normal" src="assets/characters/o-bubble-normal.png" alt=""><img class="expression-tired" src="assets/characters/o-bubble-tired.png" alt=""></div>
+      <figure class="character tired-person mr-o-portrait" role="img" aria-label="Mr O becomes tired and slumps behind the counter"><img class="expression-normal" src="assets/characters/o-normal.png" alt="" aria-hidden="true"><img class="expression-tired" src="assets/characters/o-tired.png" alt="" aria-hidden="true"></figure>
+      <img class="counter tired-counter" src="assets/store/counter.png" alt="The till remains open">
+    </div>
+  </section>
 
-    <section class="story-section" id="morning" data-time="4" aria-labelledby="morning-title">
-      <div class="sticky-scene light-scene morning-scene">
-        <div class="section-heading"><h2 id="morning-title">The city has woken up; after having ‘dinner’, he, however, is preparing to go to sleep.</h2></div>
-        <div class="morning-triptych">
-          <div class="morning-panel home-panel"><img class="home-city" src="assets/backgrounds/city-night.png" alt="The city at the end of the night"><figure class="character homeward mr-o-portrait"><img src="assets/characters/o-tired.png" alt="A tired Mr O walking home through the city"></figure></div>
-          <div class="morning-panel breakfast-panel" role="group" aria-label="Breakfast before sleep"><img class="breakfast-hand" src="assets/morning/hand.png" alt="Mr O’s open hand"><img class="breakfast-bread" src="assets/morning/bread.png" alt="Bread turning and landing in his hand"></div>
-          <div class="morning-panel window sleep-window" role="group" aria-label="A bedroom seen through a window, with curtains closing"><img class="bed-image" src="assets/morning/bed.jpg" alt="A bed with blue and white striped bedding"><div class="curtain morning-curtain curtain-left" aria-hidden="true"></div><div class="curtain morning-curtain curtain-right" aria-hidden="true"></div></div>
-        </div>
+  <section class="story-section" id="morning" data-time="4" aria-labelledby="morning-title">
+    <div class="sticky-scene light-scene morning-scene">
+      <div class="section-heading"><h2 id="morning-title">The city has woken up; after having ‘dinner’, he, however, is preparing to go to sleep.</h2></div>
+      <div class="morning-triptych">
+        <div class="morning-panel home-panel"><img class="home-city" src="assets/backgrounds/city-night.png" alt="The city at the end of the night"><figure class="character homeward mr-o-portrait"><img src="assets/characters/o-tired.png" alt="A tired Mr O walking home through the city"></figure></div>
+        <div class="morning-panel breakfast-panel" role="group" aria-label="Breakfast before sleep"><img class="breakfast-hand" src="assets/morning/hand.png" alt="Mr O’s open hand"><img class="breakfast-bread" src="assets/morning/bread.png" alt="Bread turning and landing in his hand"></div>
+        <div class="morning-panel window sleep-window" role="group" aria-label="A bedroom seen through a window, with curtains closing"><img class="bed-image" src="assets/morning/bed.jpg" alt="A bed with blue and white striped bedding"><div class="curtain morning-curtain curtain-left" aria-hidden="true"></div><div class="curtain morning-curtain curtain-right" aria-hidden="true"></div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="story-section" id="clocks" data-time="5" aria-labelledby="clocks-title">
-      <div class="sticky-scene light-scene clocks-scene">
-        <div class="clock-pair">
-          <figure><div class="clock biological" role="img" aria-label="Biological clock, conceptual illustration"><span class="n12">12</span><span class="n3">3</span><span class="n6">6</span><span class="n9">9</span><span class="clock-symbol">☀</span><i class="hand hour"></i><i class="hand minute"></i><i class="clock-pin"></i></div><figcaption>Biological clock<span>Time to rest.</span></figcaption></figure>
-          <div class="clock-copy"><h2 id="clocks-title">Two clocks,</h2><div class="clock-divider" aria-hidden="true">≠</div><p class="clock-out-of-step">two different times.</p></div>
-          <figure><div class="clock work" role="img" aria-label="Work schedule, conceptual illustration"><span class="n12">12</span><span class="n3">3</span><span class="n6">6</span><span class="n9">9</span><span class="clock-symbol">☾</span><i class="hand hour"></i><i class="hand minute"></i><i class="clock-pin"></i></div><figcaption>Work schedule<span>Time to work.</span></figcaption></figure>
-        </div>
-        <div class="scene-footer"><p>The body doesn’t simply switch shifts.</p></div>
+  <section class="story-section" id="clocks" data-time="5" aria-labelledby="clocks-title">
+    <div class="sticky-scene light-scene clocks-scene">
+      <div class="clock-pair">
+        <figure><div class="clock biological" role="img" aria-label="Biological clock, conceptual illustration"><span class="n12">12</span><span class="n3">3</span><span class="n6">6</span><span class="n9">9</span><span class="clock-symbol">☀</span><i class="hand hour"></i><i class="hand minute"></i><i class="clock-pin"></i></div><figcaption>Biological clock<span>Time to rest.</span></figcaption></figure>
+        <div class="clock-copy"><h2 id="clocks-title">Two clocks,</h2><div class="clock-divider" aria-hidden="true">≠</div><p class="clock-out-of-step">two different times.</p></div>
+        <figure><div class="clock work" role="img" aria-label="Work schedule, conceptual illustration"><span class="n12">12</span><span class="n3">3</span><span class="n6">6</span><span class="n9">9</span><span class="clock-symbol">☾</span><i class="hand hour"></i><i class="hand minute"></i><i class="clock-pin"></i></div><figcaption>Work schedule<span>Time to work.</span></figcaption></figure>
       </div>
-    </section>
+      <div class="scene-footer"><p>The body doesn’t simply switch shifts.</p></div>
+    </div>
+  </section>
 
-    <section class="story-section ending" id="return" data-time="6" aria-labelledby="return-title">
-      <div class="sticky-scene dark-scene">
-        <img class="city-background" src="assets/backgrounds/city-night.png" alt="The city at night again"><div class="city-shade"></div>
-        <div class="opening-road" aria-hidden="true"></div>
-        <div class="opening-copy ending-copy"><h2 id="return-title">Another night<br>Another shift</h2><p>The lights come on, as usual</p></div>
-        <div class="store-stage return-store"><img class="store-off" src="assets/store/night-store.png" alt="The same convenience store"><img class="store-on" src="assets/store/light-store.png" alt="" aria-hidden="true"></div>
-        <figure class="character return-person mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O arriving for another night shift"></figure>
-        <div class="scene-footer"><a class="ending-scroll" href="#story-notes"><span class="scroll-arrow" aria-hidden="true">↓</span><span class="scroll-label">Scroll to view the background story and related research</span></a></div>
-      </div>
-    </section>
-  </main>
-  <div class="notes-section" id="story-notes">
-    <footer class="credits">
-      <section class="credits-story" aria-labelledby="prototype-title">
-        <p class="credits-title">While the City Sleeps</p>
-        <details class="prototype-details">
-          <summary id="prototype-title">Story Prototype</summary>
+  <section class="story-section ending" id="return" data-time="6" aria-labelledby="return-title">
+    <div class="sticky-scene dark-scene">
+      <img class="city-background" src="assets/backgrounds/city-night.png" alt="The city at night again"><div class="city-shade"></div>
+      <div class="opening-road" aria-hidden="true"></div>
+      <div class="opening-copy ending-copy"><h2 id="return-title">Another night<br>Another shift</h2><p>The lights come on, as usual</p></div>
+      <div class="store-stage return-store"><img class="store-off" src="assets/store/night-store.png" alt="The same convenience store"><img class="store-on" src="assets/store/light-store.png" alt="" aria-hidden="true"></div>
+      <figure class="character return-person mr-o-portrait"><img src="assets/characters/o-normal.png" alt="Mr O arriving for another night shift"></figure>
+      <div class="scene-footer"><a class="ending-scroll" href="#story-notes"><span class="scroll-arrow" aria-hidden="true">↓</span><span class="scroll-label">Scroll to view the background story and related research</span></a></div>
+    </div>
+  </section>
+</main>
+<div class="notes-section" id="story-notes">
+  <footer class="credits">
+    <section class="credits-story" aria-labelledby="prototype-title">
+      <p class="credits-title">While the City Sleeps</p>
+      <details class="prototype-details">
+        <summary id="prototype-title">Story Prototype</summary>
         <p>The actual interview with Mr O is taken from <a href="https://jp.indeed.com/career-advice/career-development/convenience-store-staff_in_midnight" target="_blank" rel="noopener noreferrer">https://jp.indeed.com/career-advice/career-development/convenience-store-staff_in_midnight</a>. Other characters are fictional additions for narrative purposes. 3.20 am is a narrative reference point, not a precise biological threshold. The clock is a conceptual device only.</p>
-        </details>
-        <a class="replay" href="#city">Back to the beginning ↑</a>
-      </section>
-      <section class="credits-references" aria-labelledby="references-title">
-        <h2 id="references-title">Relevant references</h2>
-        <div class="reference-entry"><p>American Academy of Sleep Medicine. (n.d.). <em>Circadian adaptation to shift work</em> [Provider fact sheet].</p><a href="https://aasm.org/wp-content/uploads/2022/07/ProviderFS-ShiftWork.pdf" target="_blank" rel="noopener noreferrer">https://aasm.org/wp-content/uploads/2022/07/ProviderFS-ShiftWork.pdf</a></div>
-        <div class="reference-entry"><p>Copertaro, A., &amp; Bracci, M. (2019). Working against the biological clock: A review for the occupational physician. <em>Industrial Health, 57</em>(5), 557–569.</p><a href="https://doi.org/10.2486/indhealth.2018-0173" target="_blank" rel="noopener noreferrer">https://doi.org/10.2486/indhealth.2018-0173</a></div>
-        <div class="reference-entry"><p>Folkard, S. (2008). Do permanent night workers show circadian adjustment? A review based on the endogenous melatonin rhythm. <em>Chronobiology International, 25</em>(2–3), 215–224.</p><a href="https://doi.org/10.1080/07420520802106835" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/07420520802106835</a></div>
-      </section>
-    </footer>
-  </div>
-  <noscript><p class="no-script">Turn on JavaScript to see the scroll animations.</p></noscript>
+      </details>
+      <a class="replay" href="#city">Back to the beginning ↑</a>
+    </section>
+    <section class="credits-references" aria-labelledby="references-title">
+      <h2 id="references-title">Relevant references</h2>
+      <div class="reference-entry"><p>American Academy of Sleep Medicine. (n.d.). <em>Circadian adaptation to shift work</em> [Provider fact sheet].</p><a href="https://aasm.org/wp-content/uploads/2022/07/ProviderFS-ShiftWork.pdf" target="_blank" rel="noopener noreferrer">https://aasm.org/wp-content/uploads/2022/07/ProviderFS-ShiftWork.pdf</a></div>
+      <div class="reference-entry"><p>Copertaro, A., &amp; Bracci, M. (2019). Working against the biological clock: A review for the occupational physician. <em>Industrial Health, 57</em>(5), 557–569.</p><a href="https://doi.org/10.2486/indhealth.2018-0173" target="_blank" rel="noopener noreferrer">https://doi.org/10.2486/indhealth.2018-0173</a></div>
+      <div class="reference-entry"><p>Folkard, S. (2008). Do permanent night workers show circadian adjustment? A review based on the endogenous melatonin rhythm. <em>Chronobiology International, 25</em>(2–3), 215–224.</p><a href="https://doi.org/10.1080/07420520802106835" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/07420520802106835</a></div>
+    </section>
+  </footer>
+</div>
+<noscript><p class="no-script">Turn on JavaScript to see the scroll animations.</p></noscript>
 </body>
 </html>
 

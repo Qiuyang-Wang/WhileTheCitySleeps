@@ -1,5 +1,23 @@
 /* Place the story's supporting sentences alongside the moment they describe. */
 /* Keep the supplied portraits at their natural proportions and align their feet. */
+#workers .visitor {
+  width:auto;
+  height:calc(var(--character-height) * 1.08)
+}
+
+#workers .worker-a {
+  aspect-ratio:567 / 1439
+}
+
+#workers .worker-b {
+  aspect-ratio:660 / 1440;
+  bottom:15%
+}
+
+#workers .customer {
+  aspect-ratio:794 / 1440
+}
+
 .character.mr-o-portrait {
   width:auto;
   aspect-ratio:568 / 1355
