@@ -14,7 +14,7 @@ const clamp = value => Math.max(0, Math.min(1, value));
 const range = (progress, start, end) => clamp((progress - start) / (end - start));
 const set = (element, name, value) => element.style.setProperty(name, value);
 let sectionBounds = [], fadeDistance = 0, framePending = false;
-let storySounds;
+let storySounds, storyMusic;
 
 function measureSections() {
   fadeDistance = innerHeight * SETTINGS.fadeViewport;
@@ -96,7 +96,7 @@ function updateMorning(section, progress) {
   set(section, '--home-opacity', reducedMotion.matches ? 1 : range(progress, 0, 0.04) * (1 - range(progress, 0.25, 0.32)));
   set(section, '--bread-left', `${24 + breakfast * 26}%`);
   set(section, '--bread-drop', breakfast);
-  set(section, '--bread-angle', `${reducedMotion.matches ? 18 : -342 + breakfast * 360}deg`);
+  set(section, '--bread-angle', `${reducedMotion.matches ? -14.73 : -374.73 + breakfast * 360}deg`);
   set(section, '--curtain-close', curtains);
 }
 function updateClocks(section, progress) {
@@ -151,6 +151,7 @@ function updateSectionProgress() {
   if (storySounds) {
     const section = sections[active];
     const bounds = sectionBounds[active];
+    storyMusic.select(section?.id || 'notes');
     storySounds.update(section?.id || 'notes', clamp((y - bounds.top) / bounds.travel), y);
   }
   document.documentElement.classList.add('crossfade-ready');
@@ -180,12 +181,13 @@ const soundButton = document.getElementById('sound-toggle');
 const soundLabel = document.getElementById('sound-label');
 const soundStatus = document.getElementById('sound-status');
 const ambient = document.getElementById('background-music');
-ambient.volume = 0.2;
+const nightMusic = document.getElementById('night-music');
 let wantsSound = true, startPending = false, retryOnGesture = false;
-storySounds = new window.StorySoundEffects({ music: ambient, enabled: () => wantsSound && !ambient.paused });
+storyMusic = new window.StoryMusic(ambient, nightMusic, handleMusicError);
+storySounds = new window.StorySoundEffects({ music: storyMusic, enabled: () => wantsSound && !storyMusic.paused });
 
 function syncSoundControl() {
-  const playing = !ambient.paused && !ambient.ended;
+  const playing = !storyMusic.paused;
   soundButton.setAttribute('aria-pressed', String(playing));
   soundButton.setAttribute('aria-label', playing ? 'Mute music and sound effects' : 'Play music and sound effects');
   soundLabel.textContent = playing ? 'Sound On' : 'Sound Off';
@@ -196,26 +198,31 @@ async function startAmbient() {
   if (!wantsSound || startPending) return;
   startPending = true;
   try {
-    await ambient.play();
-    if (!wantsSound) ambient.pause();
+    await storyMusic.play();
+    if (!wantsSound) storyMusic.pause();
     retryOnGesture = false;
     soundStatus.textContent = '';
   } catch (error) {
-    retryOnGesture = wantsSound && error.name === 'NotAllowedError';
-    if (wantsSound && error.name !== 'AbortError') {
-      soundStatus.textContent = retryOnGesture ? 'Click anywhere to start music.' : 'This sound file couldn’t play.';
-    }
+    handleMusicError(error);
   } finally {
     startPending = false;
     syncSoundControl();
   }
 }
 
+function handleMusicError(error) {
+  retryOnGesture = wantsSound && error.name === 'NotAllowedError';
+  if (wantsSound && error.name !== 'AbortError') {
+    soundStatus.textContent = retryOnGesture ? '' : 'This sound file couldn’t play.';
+  }
+  syncSoundControl();
+}
+
 soundButton.addEventListener('click', () => {
-  if (!ambient.paused || startPending) {
+  if (!storyMusic.paused || startPending) {
     wantsSound = false;
     retryOnGesture = false;
-    ambient.pause();
+    storyMusic.pause();
     soundStatus.textContent = '';
     syncSoundControl();
   } else {
@@ -230,8 +237,10 @@ function retryAmbientOnGesture(event) {
 }
 document.addEventListener('pointerdown', retryAmbientOnGesture);
 document.addEventListener('keydown', retryAmbientOnGesture);
-ambient.addEventListener('playing', syncSoundControl);
-ambient.addEventListener('pause', syncSoundControl);
+[ambient, nightMusic].forEach(track => {
+  track.addEventListener('playing', syncSoundControl);
+  track.addEventListener('pause', syncSoundControl);
+});
 syncSoundControl();
 startAmbient();
 measureSections();

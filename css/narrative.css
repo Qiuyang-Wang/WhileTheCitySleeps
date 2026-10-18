@@ -145,6 +145,10 @@
   height:30%
 }
 
+#city .door-opening {
+  background:linear-gradient(90deg,#e7dcc0,#fff4d6 50%,#e7dcc0)
+}
+
 .interior.supermarket-interior {
   background:none;
   border:0
@@ -233,11 +237,11 @@
 
 .breakfast-bread {
   position:absolute;
-  width:61%;
+  width:82%;
   height:auto;
   left:var(--bread-left,24%);
   top:calc(-30% + var(--bread-drop,0) * (125% - 46cqw));
-  transform:translate(-50%,-50%) rotate(var(--bread-angle,-342deg));
+  transform:translate(-50%,-50%) rotate(var(--bread-angle,-374.73deg));
   filter:none;
   z-index:1
 }

@@ -70,7 +70,7 @@ a {
 }
 
 .wordmark {
-  font-weight:700;
+  font-weight:300;
   font-size:13px;
   letter-spacing:.01em
 }
@@ -87,7 +87,7 @@ a {
 
 .sound-control {
   text-align:right;
-  font-size:11px
+  font-size:16px
 }
 
 .sound-control button {
@@ -95,7 +95,9 @@ a {
 }
 
 .sound-control button>span:first-child {
-  margin-right:7px
+  margin-right:9px;
+  font-size:24px;
+  color:var(--theme-accent)
 }
 
 .sound-control #sound-status {
@@ -364,7 +366,8 @@ h2 {
 }
 
 #city .city-background {
-  object-position:50% 0%
+  object-position:50% 0%;
+  filter:brightness(.8)
 }
 
 #city .opening-copy {
@@ -375,7 +378,7 @@ h2 {
 }
 
 #city h1 {
-  font-family:"Bowlby One SC",var(--font);
+  font-family:"Kalam",cursive;
   font-weight:400;
   font-size:clamp(18px,7.2vw,140px);
   letter-spacing:.03em;
